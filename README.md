@@ -97,3 +97,69 @@ graph LR
 - **Event-driven architecture** → desacopla serviços  
 - **Documentação clara** e diagramas de dependência  
 - **Automatizar testes e CI/CD**
+---
+
+# 7 Princípios de Sucesso de uma Arquitetura de Software
+
+Para que uma arquitetura de software seja eficaz, escalável e sustentável, existem 7 princípios fundamentais que devem ser seguidos. Estes princípios ajudam equipes a planejar, operar e evoluir sistemas complexos com segurança e eficiência.
+
+---
+
+## 1. **Planejamento de Capacidade (Capacity Planning)**
+Garantir que o sistema suporte a demanda atual e futura.  
+- Avaliar **recursos de CPU, memória, rede e armazenamento**  
+- Planejar **escala horizontal ou vertical** conforme crescimento esperado  
+- Evitar **sobrecarga ou desperdício de recursos**  
+
+---
+
+## 2. **Observabilidade (Observability)**
+Permite entender o comportamento do sistema em produção.  
+- Implementar **logs estruturados, métricas e tracing distribuído**  
+- Usar ferramentas como **Prometheus, Grafana, ELK Stack, Jaeger**  
+- Facilita **detecção de problemas antes que impactem usuários**
+
+---
+
+## 3. **Release Engineering**
+Gerenciar e automatizar processos de entrega de software.  
+- Implementar **CI/CD** para integração e deploy contínuo  
+- Garantir **versionamento, rollback e testes automatizados**  
+- Reduzir riscos de **falhas em produção**
+
+---
+
+## 4. **Operações (Operations)**
+Planejar como o sistema será mantido e operado no dia a dia.  
+- Monitorar **disponibilidade, desempenho e uso de recursos**  
+- Ter **playbooks e automações** para tarefas repetitivas  
+- Garantir **tempo de resposta rápido para incidentes**
+
+---
+
+## 5. **Confiabilidade (Reliability)**
+Garantir que o sistema funcione corretamente mesmo diante de falhas.  
+- Estratégias: **replicação, failover, circuit breakers, retries**  
+- Minimizar **pontos únicos de falha**  
+- Aumentar **confiança do usuário no sistema**
+
+---
+
+## 6. **Otimização de Custo (Cost Optimization)**
+Gerenciar recursos de forma eficiente sem comprometer performance.  
+- Escolher **infraestrutura sob demanda ou escalável automaticamente**  
+- Evitar **recursos ociosos**  
+- Avaliar **trade-offs entre custo, performance e disponibilidade**
+
+---
+
+## 7. **Segurança (Security)**
+Proteger o sistema contra ameaças e vulnerabilidades.  
+- Implementar **autenticação e autorização robustas**  
+- Garantir **criptografia de dados em trânsito e em repouso**  
+- Monitorar **ameaças e aplicar correções regularmente**  
+
+---
+
+Seguindo estes princípios, uma arquitetura de software se torna **resiliente, escalável e sustentável**, permitindo que equipes entreguem valor contínuo com **alta confiabilidade e segurança**.
+
