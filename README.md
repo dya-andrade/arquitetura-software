@@ -143,6 +143,28 @@ Garantir que o sistema funcione corretamente mesmo diante de falhas.
 - Minimizar **pontos únicos de falha**  
 - Aumentar **confiança do usuário no sistema**
 
+A confiabilidade pode ser detalhada em cinco aspectos principais:
+
+### 5.1 Consistência
+- Todos os nós do sistema veem os mesmos dados ao mesmo tempo  
+- Evita **conflitos e leituras incorretas**
+
+### 5.2 Disponibilidade
+- O sistema responde a todas as requisições dentro de um tempo aceitável  
+- Maximiza **tempo de atividade (uptime)**
+
+### 5.3 Durabilidade
+- Dados não se perdem após serem gravados, mesmo em falhas  
+- Estratégias: **replicação, backup e armazenamento persistente confiável**
+
+### 5.4 Tolerância a Falhas (Fault Tolerance)
+- O sistema continua operando mesmo que um ou mais componentes falhem  
+- Estratégias: **failover automático, retries, circuit breakers**
+
+### 5.5 Previsibilidade
+- O comportamento do sistema é consistente e previsível sob diferentes cargas  
+- Permite **planejamento de capacidade e confiabilidade operacional**
+
 ---
 
 ## 6. **Otimização de Custo (Cost Optimization)**
@@ -162,4 +184,125 @@ Proteger o sistema contra ameaças e vulnerabilidades.
 ---
 
 Seguindo estes princípios, uma arquitetura de software se torna **resiliente, escalável e sustentável**, permitindo que equipes entreguem valor contínuo com **alta confiabilidade e segurança**.
+
+---
+
+# Objectives and Key Results (OKR)
+
+**Objectives and Key Results (OKR)** é uma metodologia de definição de metas usada por empresas para alinhar objetivos estratégicos com resultados mensuráveis. Ela ajuda equipes e organizações a focarem no que realmente importa, mantendo transparência e motivação.
+
+---
+
+## 1. Estrutura de OKR
+
+Um OKR é composto por duas partes:
+
+### 1.1 **Objective (Objetivo)**
+- Um objetivo é **qualitativo e inspirador**  
+- Responde à pergunta: "O que queremos alcançar?"  
+- Deve ser **claro, motivador e alcançável**  
+
+### 1.2 **Key Results (Resultados-Chave)**
+- Resultados mensuráveis que indicam se o objetivo foi atingido  
+- Normalmente **quantitativos**  
+- Cada objetivo costuma ter **2 a 5 key results**  
+
+---
+
+## 2. Exemplo Prático: Melhorar a Satisfação do Cliente
+
+### Objetivo
+**Melhorar a satisfação do cliente em nossos produtos e serviços até o final do trimestre.**
+
+### Key Results
+1. Aumentar a **pontuação média de satisfação (NPS)** de 65 para 80  
+2. Reduzir o **tempo médio de resposta do suporte** de 24h para 12h  
+3. Implementar **3 novas funcionalidades** solicitadas diretamente pelos clientes  
+4. Reduzir a **taxa de reclamações** em 30%  
+
+> Nesse exemplo, o objetivo é qualitativo e inspirador (“melhorar a satisfação do cliente”), enquanto os key results são métricas claras que indicam o progresso rumo ao objetivo.  
+
+---
+
+## 3. Boas Práticas com OKRs
+
+- Definir **OKRs trimestrais** ou semestrais  
+- Tornar os objetivos **ambiciosos, mas alcançáveis**  
+- Alinhar OKRs entre **equipes e níveis da empresa**  
+- Revisar regularmente e ajustar conforme necessário  
+- Garantir que **cada resultado-chave seja mensurável**  
+
+---
+
+## 4. Benefícios do OKR
+
+- Foco em resultados e não apenas em atividades  
+- Maior alinhamento entre equipes e objetivos estratégicos  
+- Transparência e visibilidade do progresso  
+- Motivação da equipe ao ver resultados concretos
+
+---
+
+# Alinhamento entre Arquitetura de Software e Metas de Negócio
+
+Uma arquitetura de software ideal não é apenas **robusta e escalável**, mas também deve ser **prática e alinhada com os objetivos de negócio**. Em muitos casos, mudanças radicais na arquitetura — como migrar de um banco de dados ou refatorar todo um sistema — podem **não ser viáveis** devido a restrições de tempo, custo ou prioridades estratégicas.
+
+---
+
+## 1. Equilíbrio entre Flexibilidade e Negócio
+
+### Desafios comuns:
+- Necessidade de atender **metas de negócio imediatas**, como lançamento de funcionalidades ou aumento de receita  
+- Restrições orçamentárias e de equipe  
+- Sistemas legados que **não permitem mudanças radicais** sem impactar usuários  
+
+### Consequências de não considerar o negócio:
+- Focar apenas na “arquitetura perfeita” pode atrasar entregas importantes  
+- Projetos podem se tornar **ineficientes ou obsoletos** frente às demandas reais do mercado  
+
+---
+
+## 2. Estratégias de Equilíbrio
+
+1. **Planejamento incremental**
+   - Introduzir melhorias de arquitetura **de forma gradual**  
+   - Exemplo: adicionar cache ou otimizações de queries antes de migrar de banco de dados
+
+2. **Foco em objetivos de negócio**
+   - Priorizar mudanças que **gerem valor tangível** para clientes e stakeholders  
+   - Exemplo: melhorar tempo de resposta de funcionalidades críticas antes de mudar toda a stack
+
+3. **Arquitetura evolutiva**
+   - Projetar componentes que permitam **futuras alterações sem reescrever todo o sistema**  
+   - Exemplo: usar interfaces e abstrações para isolar dependências críticas
+
+4. **Comunicação com equipes de negócio**
+   - Alinhar prioridades técnicas com **OKRs ou metas estratégicas da empresa**  
+   - Garantir que decisões técnicas suportem os objetivos de negócio sem atrasar entregas
+
+---
+
+## 3. Exemplo prático
+
+- **Situação:** A equipe de negócios quer aumentar a satisfação do cliente adicionando novas funcionalidades ao sistema de e-commerce.  
+- **Desafio arquitetural:** Migrar todo o banco de dados para uma solução mais moderna demandaria 3 meses de trabalho e afetaria lançamentos importantes.  
+- **Solução equilibrada:**  
+  - Priorizar funcionalidades que agreguem valor imediato  
+  - Aplicar pequenas melhorias na arquitetura atual (ex.: otimizações de queries e cache)  
+  - Planejar migração de banco de dados para uma fase futura, quando houver menor impacto nas metas  
+
+> Esse equilíbrio garante que o sistema evolua de forma segura, mas sem comprometer **as metas e necessidades do negócio**.
+
+---
+
+## 4. Conclusão
+
+Uma boa arquitetura de software **não deve ser perfeita no papel**, mas sim **eficaz na prática**, conciliando:
+
+- Robustez e confiabilidade técnicas  
+- Flexibilidade para futuras melhorias  
+- Entrega de valor real para o negócio  
+
+A chave está em **priorizar decisões arquiteturais que suportem metas estratégicas**, garantindo que o sistema evolua sem comprometer objetivos imediatos.
+
 
