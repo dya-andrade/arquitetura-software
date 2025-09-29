@@ -372,11 +372,10 @@ Abaixo está um ciclo recomendado:
 ```mermaid
 flowchart LR
     A[AS-IS<br>Estado Atual] --> B[TO-BE<br>Estado Futuro]
-    B --> C[Prova de Conceito (POC)]
+    B --> C[Prova de Conceito - POC]
     C --> D[Migração Oficial]
     D --> E[Testes e Validação]
     E --> F[Arquitetura em Produção]
-    
 ```
 
 ---
