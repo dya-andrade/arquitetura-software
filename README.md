@@ -1,5 +1,17 @@
-# arquitetura-software
-Conceitos básicos de arquitetura de software.
+# Arquitetura Software
+Conceitos básicos/fundamentais de arquitetura de software.
+
+# Índice
+
+- [Arquiteturas em Grande Escala e Arquiteturas Complexas](#arquiteturas-em-grande-escala-e-arquiteturas-complexas)
+- [7 Princípios de Sucesso de uma Arquitetura de Software](#7-princípios-de-sucesso-de-uma-arquitetura-de-software)
+- [Objectives and Key Results (OKR)](#objectives-and-key-results-okr)
+- [Alinhamento entre Arquitetura de Software e Metas de Negócio](#alinhamento-entre-arquitetura-de-software-e-metas-de-negócio)
+- [Ciclo de Mudança de Arquitetura](#ciclo-de-mudança-de-arquitetura)
+- [High Availability (HA) vs Fault Tolerance (FT)](#high-availability-ha-vs-fault-tolerance-ft)
+- [Escalabilidade: Escala Horizontal vs Escala Vertical](#escalabilidade-escala-horizontal-vs-escala-vertical)
+- [Acordos de Nível de Serviço: SLI, SLO e SLA](#acordos-de-nível-de-serviço-sli-slo-e-sla)
+- [RTO, RPO, Downtime e Data Loss](#rto-e-rpo--conceitos-de-continuidade-e-recuperação-de-desastres)
 
 # Arquiteturas em Grande Escala e Arquiteturas Complexas
 
@@ -372,11 +384,10 @@ Abaixo está um ciclo recomendado:
 ```mermaid
 flowchart LR
     A[AS-IS<br>Estado Atual] --> B[TO-BE<br>Estado Futuro]
-    B --> C[Prova de Conceito (POC)]
+    B --> C[Prova de Conceito - POC]
     C --> D[Migração Oficial]
     D --> E[Testes e Validação]
     E --> F[Arquitetura em Produção]
-    
 ```
 
 ---
