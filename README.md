@@ -752,3 +752,111 @@ O **RPO** é o **ponto máximo aceitável de perda de dados** em termos de tempo
 Assim, a empresa garante **continuidade dos serviços** sem gastar além do necessário para o nível de resiliência desejado.  
 
 ---
+
+# ⚙️ System Design vs System Architecture
+
+## 1. Conceitos Fundamentais
+
+Antes de tudo, é importante entender que **System Design** e **System Architecture** são **conceitos complementares**, mas **não são a mesma coisa**.
+
+- **System Architecture** descreve a **estrutura fundamental** de um sistema — os componentes, suas responsabilidades e como eles se relacionam.
+- **System Design** é o processo de **detalhar as decisões técnicas** e **como o sistema funcionará na prática** para atender os requisitos de negócio e técnicos.
+
+Em resumo:  
+> **A arquitetura define o "o quê" e o "por quê" — o design define o "como".**
+
+---
+
+## 2. 🔩 System Architecture (Arquitetura de Sistema)
+
+A **System Architecture** foca na **visão macro** do sistema.
+
+Ela responde a perguntas como:
+- Quais são os principais módulos e serviços?
+- Como eles se comunicam?
+- Quais tecnologias e paradigmas serão utilizados (monólito, microservices, event-driven, etc.)?
+- Como a segurança, escalabilidade e resiliência são garantidas?
+
+**Exemplo:**  
+Um sistema de e-commerce pode ser dividido em:
+- Serviço de Catálogo  
+- Serviço de Carrinho  
+- Serviço de Pagamentos  
+- Serviço de Usuários  
+- Banco de dados distribuído  
+
+**Objetivo da arquitetura:**  
+Garantir que o sistema seja **coeso, escalável, seguro e de fácil manutenção.**
+
+---
+
+## 3. 🧠 System Design (Desenho de Sistema)
+
+O **System Design** é o **processo de criação da solução técnica** que implementa a arquitetura.  
+Ele vai mais a fundo, cuidando de **detalhes de implementação, performance e otimização.**
+
+Perguntas que o design responde:
+- Como será feito o balanceamento de carga?  
+- Qual tipo de banco de dados usar (SQL, NoSQL, caching)?  
+- Como lidar com filas, mensageria e tolerância a falhas?  
+- Quais padrões de design e estratégias de armazenamento serão usados?  
+
+**Exemplo:**  
+Dentro do serviço de pagamentos, o design define:
+- Uso do **Kafka** para eventos de transação  
+- Persistência com **PostgreSQL + Redis cache**  
+- Estratégia de **retry e idempotência**  
+- **API REST** com autenticação JWT  
+
+**Objetivo do design:**  
+Transformar a arquitetura em uma **solução técnica concreta e eficiente.**
+
+---
+
+## 4. 🧩 Diferenças Principais
+
+| Aspecto | System Architecture | System Design |
+|----------|--------------------|----------------|
+| **Foco** | Estrutura global do sistema | Implementação detalhada e interações |
+| **Nível** | Alto nível (macro) | Médio e baixo nível |
+| **Objetivo** | Definir a visão e componentes principais | Especificar como o sistema funcionará na prática |
+| **Responsáveis** | Arquitetos de software | Engenheiros e desenvolvedores seniores |
+| **Entregável** | Diagramas de arquitetura, decisões técnicas de alto nível | Diagramas de componentes, fluxos, modelos de dados |
+| **Pergunta respondida** | *O que compõe o sistema?* | *Como o sistema funcionará?* |
+
+---
+
+## 5. 🎯 Exemplo Visual
+
+```mermaid
+graph TD
+  A[Frontend] --> B[API Gateway]
+  B --> C[Serviço de Autenticação]
+  B --> D[Serviço de Pagamentos]
+  D --> E[(Banco de Dados)]
+  D --> F[Serviço de Notificações]
+```
+
+➡ Arquitetura: mostra os módulos e suas relações.
+➡ Design: definiria como o serviço de pagamentos se comunica com o banco, quais tecnologias usa, como lida com falhas, etc.
+
+## 6. 📚 Resumo Final
+| Nível | O que define | Pergunta principal | Entregável |
+|:------|:--------------|:--------------------|:-------------|
+| **Architecture** | Estrutura e padrões do sistema | “O que o sistema é?” | Diagrama de arquitetura, visão macro |
+| **Design** | Implementação e detalhes técnicos | “Como o sistema funciona?” | Diagramas detalhados, fluxos, modelos de dados |
+
+## 7. 🏁 Conclusão
+
+* Em projetos reais, System Architecture e System Design trabalham juntos:
+
+  - A arquitetura garante coerência e visão estratégica.
+
+  - O design garante eficiência e viabilidade técnica.
+
+  - Uma boa arquitetura sem um bom design é apenas teoria.
+  - Um bom design sem uma arquitetura sólida leva a sistemas fragmentados e difíceis de escalar.
+  
+  - O equilíbrio entre ambos é o que transforma uma ideia em um sistema realmente escalável, confiável e sustentável.
+
+---
