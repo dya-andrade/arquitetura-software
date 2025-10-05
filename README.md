@@ -871,3 +871,238 @@ graph TD
   - O equilíbrio entre ambos é o que transforma uma ideia em um sistema realmente escalável, confiável e sustentável.
 
 ---
+
+# 🏗️ Tipos de Arquitetura de Software
+
+Neste documento, exploramos quatro abordagens comuns de arquitetura de software: **Monolito**, **Monolito Modular**, **Microsserviços** e **Serverless**, detalhando diferenças, vantagens e desvantagens.
+
+---
+
+## 1. Monolito
+
+O **Monolito** é uma arquitetura em que **todas as funcionalidades de um sistema estão em uma única aplicação**.
+
+### Características:
+- Código, banco de dados e interface em um único deploy
+- Fácil de iniciar e desenvolver para sistemas pequenos
+- Deploy é feito de forma única
+
+### Vantagens:
+- Simplicidade no desenvolvimento inicial
+- Fácil de testar localmente
+- Deploy único, sem orquestração complexa
+
+### Desvantagens:
+- Difícil de escalar individualmente (precisa escalar o sistema todo)
+- Mudanças pequenas podem afetar todo o sistema
+- Manutenção e evolução se tornam complicadas conforme o sistema cresce
+
+---
+
+## 2. Monolito Modular
+
+O **Monolito Modular** é uma evolução do monolito tradicional, **dividindo o sistema em módulos internos**, mantendo um único deploy.
+
+### Características:
+- Código organizado em módulos ou pacotes
+- Cada módulo tem responsabilidades claras
+- Mantém deploy único
+
+### Vantagens:
+- Melhor organização e separação de responsabilidades
+- Facilita testes unitários e manutenção
+- Transição mais fácil para microsserviços no futuro
+
+### Desvantagens:
+- Ainda precisa escalar o sistema inteiro
+- Complexidade maior que um monolito simples
+- Regras de acoplamento entre módulos precisam ser respeitadas
+
+---
+
+## 3. Microsserviços
+
+Os **Microsserviços** dividem o sistema em **vários serviços independentes**, cada um com **responsabilidade única e deploy próprio**.
+
+### Características:
+- Serviços pequenos e independentes
+- Comunicação via APIs ou mensageria
+- Cada serviço pode ter sua própria tecnologia e banco
+
+### Vantagens:
+- Escalabilidade individual de cada serviço
+- Equipes podem trabalhar de forma independente
+- Facilita manutenção e evolução contínua
+- Maior resiliência: falha em um serviço não derruba todo o sistema
+
+### Desvantagens:
+- Complexidade de comunicação entre serviços
+- Monitoramento e deploy mais complexos
+- Necessidade de gestão de dados distribuídos
+- Custos operacionais mais altos
+
+---
+
+## 4. Serverless
+
+O **Serverless** é um modelo em que **a infraestrutura é gerenciada pelo provedor de nuvem**, permitindo que o desenvolvedor foque apenas no código.
+
+### Características:
+- Funções independentes executadas sob demanda
+- Escalabilidade automática
+- Não há gestão direta de servidores
+
+### Vantagens:
+- Escalabilidade automática e elástica
+- Pagamento por uso real
+- Reduz complexidade operacional
+- Ideal para eventos ou funções intermitentes
+
+### Desvantagens:
+- Dependência do provedor de nuvem
+- Latência inicial (“cold start”)
+- Limitações de execução e tempo máximo por função
+- Difícil integração com sistemas legados complexos
+
+---
+
+## 5. Comparação Rápida
+
+| Arquitetura | Escalabilidade | Deploy | Complexidade | Melhor uso |
+|-------------|----------------|--------|--------------|------------|
+| Monolito | Baixa (escala tudo junto) | Único | Baixa | Sistemas pequenos ou MVPs |
+| Monolito Modular | Média | Único | Média | Sistemas médios com necessidade de organização |
+| Microsserviços | Alta (serviços independentes) | Independente por serviço | Alta | Sistemas grandes, equipes distribuídas, alta resiliência |
+| Serverless | Muito alta (elástica) | Função por função | Média-Alta | Eventos, aplicações intermitentes, custo otimizado |
+
+---
+
+## 6. Conclusão
+
+A escolha da arquitetura depende de:
+
+- **Tamanho e complexidade do sistema**
+- **Recursos da equipe**
+- **Necessidade de escalabilidade e resiliência**
+- **Custo e tempo de manutenção**
+
+> Um sistema pode começar como um **monolito simples** e evoluir para **modular ou microsserviços** conforme cresce, ou utilizar **serverless** para componentes específicos que demandem escalabilidade automática.
+
+---
+# 🏛️ Three-Tier Architecture
+
+A **Three-Tier Architecture** é uma arquitetura de software que separa o sistema em **três camadas principais**: **Presentation Layer (Front-end)**, **Application Layer (Back-end)** e **Data Layer (Datastore)**.  
+
+Essa separação permite modularidade, escalabilidade e manutenção mais eficiente.
+
+---
+
+## 1. Camadas da Arquitetura
+
+### 1.1 Presentation Layer (Front-end)
+- Responsável pela interface com o usuário
+- Recebe entradas e exibe resultados
+- Pode ser um site, app mobile ou interface desktop
+- **Observação sobre assincronismo:** a camada de front-end depende do back-end; se o back-end demora 10s para responder, o front-end também ficará aguardando
+
+**Vantagens isoladas:**
+- Permite alterar ou atualizar o front-end sem afetar o back-end
+- Facilidade em aplicar diferentes interfaces para o mesmo sistema
+
+**Desvantagens isoladas:**
+- Sozinha não realiza processamento ou armazenamento de dados
+
+---
+
+### 1.2 Application Layer (Back-end)
+- Processa a lógica do negócio
+- Valida dados, aplica regras e coordena comunicação entre front-end e banco
+- Pode ser composto por APIs, microsserviços ou serviços monolíticos
+- **Assincronismo:** normalmente responde a requisições do front-end; atrasos impactam a experiência do usuário
+
+**Vantagens isoladas:**
+- Permite evoluir regras de negócio independentemente do front-end
+- Centraliza a lógica de negócios
+
+**Desvantagens isoladas:**
+- Não fornece interface direta para o usuário
+- Depende da camada de dados para persistência
+
+---
+
+### 1.3 Data Layer (Datastore)
+- Responsável pelo armazenamento e recuperação de dados
+- Pode ser um banco SQL, NoSQL ou armazenamento distribuído
+- Garante consistência, integridade e segurança dos dados
+- **Impacto no front-end:** se a resposta do banco demora, o back-end demora e o front-end também ficará aguardando
+
+**Vantagens isoladas:**
+- Proteção e integridade dos dados
+- Pode ser trocado ou atualizado sem alterar lógica de negócio
+
+**Desvantagens isoladas:**
+- Não processa lógica ou exibe dados ao usuário
+
+---
+
+## 2. Vantagens da Arquitetura em Três Camadas
+
+- **Modularidade:** Cada camada pode ser desenvolvida, testada e mantida de forma independente  
+- **Escalabilidade:** Possível escalar cada camada de forma independente  
+- **Resiliência:** Falhas em uma camada não necessariamente afetam outras  
+- **Segurança:** Camadas isoladas permitem aplicar regras de autenticação e autorização de forma mais controlada  
+- **Reuso:** Camadas podem ser reutilizadas em diferentes aplicações
+
+---
+
+## 3. Escalabilidade
+
+| Camada | Estratégia de Escala | Considerações |
+|--------|-------------------|---------------|
+| Presentation Layer | Escala horizontal com múltiplos servidores ou CDN | Aumenta a capacidade de atender usuários simultâneos |
+| Application Layer | Escala horizontal ou via microsserviços | Permite balanceamento de carga e maior resiliência |
+| Data Layer | Escala vertical ou horizontal (sharding/replicação) | Necessário cuidado com consistência e integridade |
+
+---
+
+## 4. Resiliência e Proteção
+
+- **Presentation Layer:** isolada, evita que problemas de interface afetem back-end ou banco  
+- **Application Layer:** valida entradas, aplica lógica de segurança, isolando falhas do front-end  
+- **Data Layer:** replicação e backup garantem proteção e integridade dos dados
+
+---
+
+## 5. Acoplamento e Desacoplamento
+
+- Arquitetura de três camadas permite **baixo acoplamento**, ou seja:
+  - Mudanças em uma camada têm impacto mínimo nas outras  
+  - Facilita manutenção e evolução do sistema  
+- Acoplamento excessivo entre camadas prejudica escalabilidade, manutenção e resiliência
+
+---
+
+## 6. Observações sobre Assincronismo
+
+- Cada camada depende da anterior: o front-end aguarda respostas do back-end, que por sua vez aguarda o datastore
+- **Impacto:** se o back-end demora 10s, o front-end também ficará aguardando, o que pode afetar a experiência do usuário  
+- Possíveis soluções:
+  - Implementar **cache** na front-end ou back-end  
+  - Utilizar **filas e processamento assíncrono** para tarefas demoradas  
+  - Aplicar **loading indicators** e UX apropriada
+
+---
+
+## 7. Conclusão
+
+A **Three-Tier Architecture** é ideal para sistemas que precisam de:
+
+- Evolução contínua  
+- Escalabilidade independente por camada  
+- Segurança e isolamento  
+- Manutenção facilitada  
+
+> Separar responsabilidades entre **interface, lógica de negócio e dados** garante sistemas mais flexíveis, resilientes e fáceis de evoluir.  
+> É importante lembrar que, apesar da modularidade, o fluxo entre camadas ainda é **assíncrono limitado**: atrasos no back-end impactam diretamente a experiência do front-end.
+
+---
